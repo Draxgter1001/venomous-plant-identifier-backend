@@ -3,15 +3,16 @@ package com.example.taf.VPI.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false, name = "email")
     private String email;
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false, name = "password")
     private String password;
 
     public Long getId() {
