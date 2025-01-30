@@ -20,7 +20,7 @@ public class AppConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/api/**")
-                        .allowedOrigins("http://localhost:3000")
+                        .allowedOrigins("https://venomous-plant-identifier-frontend.vercel.app/")
                         .allowedMethods("GET", "POST", "DELETE", "PUT")
                         .allowedHeaders("*")
                         .allowCredentials(true);
