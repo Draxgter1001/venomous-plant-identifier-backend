@@ -46,20 +46,6 @@ public class SecurityConfig {
 
         return http.build();
     }
-
-    @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurer() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**")
-                    .allowedOrigins("https://venomous-plant-identifier-frontend.vercel.app/")
-                    .allowedMethods("GET", "POST", "PUT", "DELETE")
-                    .allowCredentials(true);
-            }
-        };
-    }
-
     /**
      Creates CORS configuration aligned with frontend requirements
      @return CORS configuration source with allowed origins and methods
