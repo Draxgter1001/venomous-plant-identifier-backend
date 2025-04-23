@@ -27,7 +27,8 @@ public class AppConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/api/**")
                         // Frontend deployment URL
-                        .allowedOrigins("https://venomous-plant-identifier-frontend.vercel.app/")
+                        .allowedOrigins("https://venomous-plant-identifier-frontend.vercel.app",
+                                "http://localhost:3000")
                         // Supported HTTP methods
                         .allowedMethods("GET", "POST", "DELETE", "PUT")
                         // All headers allowed
