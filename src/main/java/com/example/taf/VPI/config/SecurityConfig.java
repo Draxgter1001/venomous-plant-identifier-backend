@@ -37,6 +37,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         // Public authentication endpoints
                         .requestMatchers("/api/users/login", "/api/users/register").permitAll()
+                        .requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll()
                         // All other API endpoints require no authentication
                         .requestMatchers("/api/**").permitAll()
                         // Secure all other requests
@@ -54,7 +55,8 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         // Allow frontend origin
-        configuration.setAllowedOrigins(List.of("https://venomous-plant-identifier-frontend.vercel.app/"));
+        configuration.setAllowedOrigins(List.of("https://venomous-plant-identifier-frontend.vercel.app",
+                "http://localhost:3000"));
         // Supported HTTP methods
         configuration.setAllowedMethods(List.of("GET", "POST", "DELETE", "PUT"));
         // All headers permitted
